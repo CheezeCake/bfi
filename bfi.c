@@ -35,6 +35,11 @@ int main(int argc, char **argv)
 			++bracket_count;
 		else if (c == ']')
 			--bracket_count;
+
+		if (bracket_count < 0) {
+			fprintf(stderr, "unbalanced [ ] in input\n");
+			return 1;
+		}
 	}
 
 	fclose(input);
